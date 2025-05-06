@@ -373,7 +373,7 @@ input.addEventListener('change', e => {
           "ROLEX Used Left.png": "image-gallery/White/ROLEX/ROLEX Used Left.png",
           "ROLEX Used Right.png": "image-gallery/White/ROLEX/ROLEX Used Right.png",
           "ROLEX New Story.png": "image-gallery/White/ROLEX/ROLEX New Story.png",
-          "ROLEX Sold Story.png": "image-gallery/White/ROLEX/ROLEX Sold Story .png",
+          "ROLEX Sold Story .png": "image-gallery/White/ROLEX/ROLEX Sold Story .png",
           "ROLEX Used Story.png": "image-gallery/White/ROLEX/ROLEX Used Story.png",
         },
         "TAG HEUER": {
