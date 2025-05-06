@@ -1,0 +1,286 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+  }
+  body {
+    overflow: hidden !important;
+    font-family: 'Inter', sans-serif;
+  }
+  .navbarContainer {
+    background-color: #030712 !important;
+  }
+  /* Editable text style */
+  .editable-text {
+    border: 1px solid #cbd5e1; /* Tailwind slate-300 */
+    padding: 0.5rem;
+    border-radius: 0.375rem; /* rounded */
+    background-color: white;
+    position: absolute;
+    cursor: text;
+    user-select: text;
+    resize: both;
+    overflow: auto;
+    min-width: 50px;
+    min-height: 20px;
+  }
+  #backgroundImage,
+  #logoImage,
+  #foregroundImage {
+    position: absolute;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover;
+    transform-origin: center;
+  }
+
+
+  #canvasContainer {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #ffffff; /* White background */
+position: relative;
+overflow: hidden; /* Prevent overflow */
+aspect-ratio: 1 / 1; /* Maintain aspect ratio */
+max-width: 100%; /* Ensure it doesn't overflow horizontally */
+max-height: 66.666vh; /* Limit height to 66.666% of the viewport height */
+width: 100%; /* Take full width of the parent container */
+height: auto; /* Adjust height automatically based on aspect ratio */
+margin: 0; /* Remove any margin */
+padding: 0; /* Remove any padding */
+box-shadow:
+0 0 0 3px #0f131e,    
+0 0 0 4px #333740,    
+0 0 0 15px #030712,
+0 0 0 16px #333740;  
+}
+.canvasareaBackground::before {
+content: '';
+position: absolute;
+inset: 0; /* Cover the entire element */
+background-image: repeating-linear-gradient(45deg, #333740 10px, #333740 10px, transparent 12px, transparent 20px);
+opacity: 0.5; /* Adjust the opacity of the background image */
+}
+@media (max-width: 607px) {
+#canvasContainer {
+  max-width: 90vw !important; /* Limit width to 90% of the viewport width */
+  max-height: 90vw !important; /* Match height to width to maintain 1:1 aspect ratio */
+}
+}
+.pageWrapper {
+    overflow: hidden !important;
+    flex-direction: row;
+}
+@media screen and (max-width: 937px) {
+    .pageWrapper {
+        flex-direction: column;
+    }
+}
+.sidebarContainer {
+    height: 100%;
+    width: 383px;
+}
+@media screen and (max-width: 937px) {
+    .sidebarContainer {
+        width: 100%;
+        height: 33.333vh;
+    }
+}
+.downloadContainer {
+    flex-direction: column;
+}
+@media screen and (max-width: 937px) {
+    .downloadContainer {
+        flex-direction: row;
+    }
+}
+#canvas {
+position: relative;
+width: 100%;
+height: 100%;
+}
+
+  /* Default text block style */
+  #textEditor {
+    height: auto;
+  }
+.text-block {
+position: absolute;
+overflow: hidden;
+cursor: move;
+padding: 2px;
+border: 2px solid transparent !important;
+background-color: var(--custom-bg, transparent); /* Default fallback */
+}
+.text-block .ql-editor {
+background-color: inherit !important;
+height: auto !important;
+padding: 9px 0px;
+align-items: center !important; /* Vertically center text */
+}
+
+/* Selected text block style */
+.text-block.selected {
+border: 2px dashed #3b82f6 !important;
+}
+
+/* Quill Editor Styles */
+.ql-toolbar {
+pointer-events: auto !important;
+}
+.ql-editor {
+font-size: inherit !important;
+color: inherit !important;
+background-color: inherit !important;
+}
+.ql-toolbar.ql-snow {
+background-color: #c0cad7 !important;
+border-radius: 0.25rem !important;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+content: attr(data-value) !important;
+}
+.ql-snow .ql-picker.ql-size {
+width: 110px !important;
+}
+.ql-snow .ql-picker.ql-color .ql-picker-label,
+.ql-snow .ql-picker.ql-background .ql-picker-label {
+padding: 2px !important;
+}
+.hidden {
+display: none !important;
+}
+
+/* Hide scrollbar for all browsers */
+.sidebar-scroll {
+scrollbar-width: none; /* Firefox */
+-ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+display: none; /* Chrome, Safari, and Edge */
+}
+
+/* COPAI CUSTOM */
+
+.sliderCP {
+-webkit-appearance: none;
+width: 100%;
+height: 5px;
+background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+border-radius: 5px;
+outline: none;
+opacity: 0.7;
+-webkit-transition: .2s;
+transition: opacity .2s;
+}
+
+.sliderCP:hover {
+opacity: 1;
+}
+
+.sliderCP::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: #c0cad7;
+cursor: pointer;
+}
+
+.sliderCP::-moz-range-thumb {
+width: 5px;
+height: 5px;
+background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+cursor: pointer;
+}
+
+.gradient-ring {
+position: relative;
+}
+
+.gradient-ring::before {
+content: '';
+position: absolute;
+inset: -4px; /* Adjust the size of the ring */
+background: linear-gradient(to right, #6366f1, #a855f7, #ec4899); /* Gradient colors */
+border-radius: inherit; /* Match the parent element's border radius */
+z-index: -1; /* Place it behind the element */
+}
+
+/* Modal Styles */
+#renderedImageModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+#renderedImageModal .bg-[#1c2029] {
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+/* Image Gallery Modal Styles */
+#imageGalleryModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+#imageGalleryModal .bg-[#1c2029] {
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+#imageGallery img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+#imageGallery img:hover {
+  transform: scale(1.05);
+  border-color: #6366f1; /* Tailwind indigo-500 */
+}
+
+/* Breadcrumb Navigation */
+#breadcrumbGallery {
+  font-size: 0.875rem;
+  color: #c0cad7;
+}
+
+#breadcrumbGallery span {
+  cursor: pointer;
+  color: #6366f1; /* Tailwind indigo-500 */
+}
+
+#breadcrumbGallery span:hover {
+  text-decoration: underline;
+  color: #a855f7; /* Tailwind purple-500 */
+}
+
+/* Folder Styles */
+#folderImageContainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+#folderImageContainer i {
+  font-size: 2rem;
+}
